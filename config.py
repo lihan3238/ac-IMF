@@ -19,8 +19,8 @@ csrf_key = os.urandom(24)
 
 token_expired = 30*60
 
-storage_path='./testpath'
-nacl_sk_path='./nacl_sk_path'
+storage_path='./storage/'
+nacl_sk_path='./nacl_sk'
 
 # models/file
 # config.py

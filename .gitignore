@@ -1,5 +1,13 @@
-__pycache__/
-.idea/
-config/
-static/
+nacl_sk
+
+key.pem
+
+cert.pem
+
+
+.venv/
+
 storage/
+
+__pycache__/
+
