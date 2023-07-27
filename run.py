@@ -1,9 +1,12 @@
 from views import *
-
+import ssl
 
 def run(app):
-    from config import host, port, debug, ssl_context
+    from config import host, port, debug
+    ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+    ssl_context.load_cert_chain(certfile='cert.pem', keyfile='key.pem')
     app.run(host=host, port=port, debug=debug, ssl_context=ssl_context)
+
 
 
 def main():
@@ -12,6 +15,7 @@ def main():
 
     from config import csrf_key
     app.secret_key = csrf_key
+    #print("csrf_key=="+str(csrf_key))
     # ----------- 注册蓝图 ------------ #
     app.register_blueprint(root, url_prefix='/')
     app.register_blueprint(register, url_prefix='/register')
