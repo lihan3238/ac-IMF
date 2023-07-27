@@ -15,6 +15,7 @@ pymysql = "==0.9.1"
 update = "*"
 jinja2 = "==2.11.3"
 markupsafe = "==2.0.1"
+pyotp = "*"
 
 [dev-packages]
 

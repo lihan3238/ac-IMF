@@ -67,7 +67,7 @@ class File(db.Model):
 
         # 读取上传的内容,并检查是否小于10MB
         content = data.read()
-        assert len(content) < 1*1024*1024, 'file too large (>=10MB)'
+        assert len(content) < 10*1024*1024, 'file too large (>=10MB)'
 
         # 构建用户的文件存储路径
         user_id = str(user.id_)+'/'

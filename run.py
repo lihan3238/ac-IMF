@@ -8,11 +8,11 @@ def run(app):
     app.run(host=host, port=port, debug=debug, ssl_context=ssl_context)
 
 
-
+#https://cloudpan.cuc.edu.cn:80/login/访问
 def main():
     from database import create_app
     app = create_app(__name__)
-
+    app.static_folder = 'static'
     from config import csrf_key
     app.secret_key = csrf_key
     #print("csrf_key=="+str(csrf_key))

@@ -10,7 +10,7 @@ mysql_schema = 'cuc_cloud_database'
 #run.py
 # Flask 
 host = '127.0.0.1'
-port = 5000
+port = 80
 debug = True
 
 #csrf_key='privatekey'

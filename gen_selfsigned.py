@@ -5,7 +5,7 @@ from ipaddress import IPv4Address
 
 if __name__ == '__main__':
     # 定义hostname, public_ip, private_ip: 这些变量分别用于设置要生成证书的主机名，公共IP地址和私有IP地址。
-    hostname = 'cloud.1228.edu.cn'
+    hostname = 'cloudpan.cuc.edu.cn'
     public_ip, private_ip = [IPv4Address('127.0.0.1')]*2
 
     # 调用generate_selfsigned_cert(hostname, public_ip, private_ip)来生成自签名SSL证书和私钥。

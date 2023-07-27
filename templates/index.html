@@ -1,13 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Index</title>
+	<meta charset="utf-8">
+	<title>Hello world</title>
+	<link rel="stylesheet" media="screen" href="/static/css/style.css">
+
+	<script language="JavaScript">
+		function dosearch() {
+			var sf = document.searchform;
+			var submitto = sf.sengine.value + escape(sf.searchterms.value);
+			window.location.href = submitto;
+			return false;
+		}
+	</script>
 </head>
+
 <body>
-    <h1>Hello World!</h1>
-    <a href="/file">我的文件</a>
-    <a href="/shared_file">共享文件</a>
-    <a href="/logout">退出</a>
+
+	<p class="error">Index</p>
+
+	<div class="content" style="text-align:center">
+
+		<a href="/file">我的文件</a><br />
+		<a href="/shared_file">共享文件</a><br />
+		<a href="/logout">退出</a><br />
+
+	</div>
+
 </body>
+
 </html>

@@ -1,11 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Logout</title>
+	<meta charset="utf-8">
+	<title>logout</title>
+	<link rel="stylesheet" media="screen" href="/static/css/style.css">
+
+	<script language="JavaScript">
+		function dosearch() {
+			var sf = document.searchform;
+			var submitto = sf.sengine.value + escape(sf.searchterms.value);
+			window.location.href = submitto;
+			return false;
+		}
+	</script>
 </head>
+
 <body>
-    <h1>您已退出</h1>
-    <a href="/login">登录</a>
+
+	<p class="error">Bye</p>
+
+	<div class="content">
+		<h2>See you next time.</h2>
+
+		<p class="text">
+
+		<div style="text-align:center">
+			<a href="/login">登录</a>
+		</div>
+		</p>
+
+	</div>
+
 </body>
+
 </html>

@@ -29,7 +29,6 @@ class RegisterForm(PasswordForm):
 class LoginForm(PasswordForm):
     username = StringField('username', validators=[DataRequired()])
     password = PasswordField('password', validators=[DataRequired()])
-
 # 使用FileForm表单类，你可以在Flask应用中创建一个文件上传的表单，让用户上传文件。
 # 当用户提交表单时，表单将验证文件上传字段是否包含文件，如果没有上传文件，则会产生验证错误。
 class FileForm(FlaskForm):

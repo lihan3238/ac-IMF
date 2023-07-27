@@ -1,21 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>登录</title>
-</head>
-<body>
-    {% if message %}
-    <p style="color:red">{{ message }}</p>
-    {% endif %}
-    <form action="/login/" method="post">
-        <p>{{ form.username(placeholder='用户名') }}</p>
-        <p>{{ form.password }}</p>
-        <p>{{ form.csrf_token }}</p>
-        <p><input type="submit" value="登录"></p>
-    </form>
 
-    <a href="/register">注册</a>
-    <a href="/shared_file">共享文件</a>
+<head>
+	<meta charset="utf-8">
+	<title>Page couldn't be found.</title>
+	<link rel="stylesheet" media="screen" href="/static/css/style.css">
+
+	<script language="JavaScript">
+		function dosearch() {
+			var sf = document.searchform;
+			var submitto = sf.sengine.value + escape(sf.searchterms.value);
+			window.location.href = submitto;
+			return false;
+		}
+	</script>
+</head>
+
+<body>
+
+	<div class="header">
+
+	</div>
+
+	<p class="error">Hello</p>
+
+	<div class="content">
+		<h2>Welcome to our page</h2>
+
+		{% if message %}
+		<p style="color:red">{{ message }}</p>
+		{% endif %}
+		<form action="/login/" method="post">
+			<p>{{ form.username(placeholder='用户名') }}</p>
+			<p>{{ form.password }}</p>
+			<p>{{ form.csrf_token }}</p>
+			<p><input type="submit" value="登录"></p>
+		</form>
+
+		<a href="/register">注册</a>
+		<a href="/shared_file">共享文件</a>
+
+
+	</div>
+
 </body>
+
 </html>
