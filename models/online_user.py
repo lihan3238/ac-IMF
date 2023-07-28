@@ -1,23 +1,18 @@
-# 该函数定义了五个函数
-# 第一个函数名为new_available_token(cls)，用于创建新令牌，令牌令牌通常用于
-# 进行身份验证或会话管理。在这个具体的代码中，令牌用于管理在线用户。
+"""
+函数 new_available_token(cls)，用于创建新令牌，令牌令牌通常用于进行身份验证或会话管理。
+在这个具体的代码中，令牌用于管理在线用户。
 
-# 第二个函数名为create_record(cls, id_)，用于创建在线用户记录
+函数 create_record(cls, id_)，用于创建在线用户记录
 
-# 第三个函数名为delete_record(cls, id_)，用于删除在线用户记录
+函数 delete_record(cls, id_)，用于删除在线用户记录
 
-# 第四个函数名为get_by(cls, **kwargs)，用于根据指定条件查询在线用户记录。
-# 它接收一个可变数量的关键字参数 kwargs，用于指定查询条件。
+函数 get_by(cls, **kwargs)，用于根据指定条件查询在线用户记录。
+它接收一个可变数量的关键字参数 kwargs，用于指定查询条件。
  
-# 第五个函数名为verify_token(cls, token)
-# 用于验证令牌是否有效,config中规定了一个期限
-# 根据上面函数查询出的在线用户记录
-# 用现在的时间减去上次登陆时间，若大于期限，则判断用户长时间未登陆
-# 则表示令牌无效、
-
-
-
-
+函数 verify_token(cls, token) 用于验证令牌是否有效,config中规定了一个期限
+根据上面函数查询出的在线用户记录 用现在的时间减去上次登陆时间，
+若大于期限，则判断用户长时间未登陆则表示令牌无效
+"""
 
 
 from sqlalchemy import Column, String, Integer, ForeignKey
@@ -28,17 +23,15 @@ from database import db
 from common import *
 
 
-
-
 #定义了一个名为 OnlineUser 的数据库模型类
 # 该类继承自 db.Model，表明它是一个 SQLAlchemy 的数据库模型。
 class OnlineUser(db.Model):
 
-    # 定义表名字为online_users
+    # 定义表名字为 online_users
     # 定义了三个参数
-    # 第一个为id,关联到 users 表的 id_ 列,自增
-    # 第二个为token，存储用户的唯一对应令牌
-    # 第三个为last_used,用于记录用户最后一次使用的时间。
+    # 第一个为 id,关联到 users 表的 id_ 列,自增
+    # 第二个为 token，存储用户的唯一对应令牌
+    # 第三个为 last_used,用于记录用户最后一次使用的时间。
 
     __tablename__ = 'online_users'
     id_ = Column(Integer, ForeignKey('users.id_'), primary_key=True, autoincrement=True)

@@ -1,9 +1,11 @@
-# 这段代码实现了用户的注册功能，将用户的信息和加密后的密钥存储到数据库中
-# 同时提供了查询功能，可以根据条件查找用户记录。
-# 在用户注册过程中，使用了自定义的 secret 模块执行加密操作，保护用户的敏感信息。
+"""
+这段代码实现了用户的注册功能，将用户的信息和加密后的密钥存储到数据库中
+同时提供了查询功能，可以根据条件查找用户记录。
+在用户注册过程中，使用了自定义的 secret 模块执行加密操作，保护用户的敏感信息。
 
-# get_by(cls, **kwargs)实现查询操作，用于创建用户
-# create_user(cls, username, hash_password)实现了用户的创建
+get_by(cls, **kwargs)实现查询操作，用于创建用户
+create_user(cls, username, hash_password)实现了用户的创建
+"""
 
 
 from sqlalchemy import Column, String, Integer, LargeBinary
@@ -20,9 +22,9 @@ class User(db.Model):
     # 定义了表名为 users
     # 定义了七个参数
 
-    # 第一个参数为id
+    # 第一个参数为 id
     # 第二个参数为 create_time，表示创建时间。
-    # 第三个参数为username，记录用户名字。
+    # 第三个参数为 username，记录用户名字。
     # 第四个参数为 hash_password，用于存储用户的密码的哈希值
     # 第五个参数为 encrypted_symmetric_key
     # 用于记录加密后的对称密钥。

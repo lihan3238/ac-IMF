@@ -1,47 +1,133 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>文件</title>
+	<title>Home</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href='http//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<link href="/static/css/slider.css" rel="stylesheet" type="text/css" media="all" />
+	<script type="text/javascript" src="/static/js/jquery-1.9.0.min.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.nivo.slider.js"></script>
+	<script type="text/javascript" src="/static/js/menu.js"></script>
+	<script type="text/javascript">
+		$(window).load(function () {
+			$('#slider').nivoSlider();
+		});
+	</script>
 </head>
+
 <body>
-    {% with messages = get_flashed_messages() %}
-        {% for message in messages %}
-            <p>{{message}}</p>
-        {% endfor %}
-    {% endwith %}
-    <p>{{username}}，您好！</p>
-    {% if files %}
-        <p>您当前上传了以下文件</p>
-        <ui>
-        {% for file in files %}
-            <li>
-                {{file.filename}}(已加密)
-                {% if file.shared %}
-                (已共享)
-                {% else %}
-                (未共享)
-                {% endif %}
-                <a href="/file/download?filename={{file.filename}}&type=encrypted">下载</a>
-                <a href="/file/download?filename={{file.filename}}&type=hashvalue">下载哈希值</a>
-                <a href="/file/download?filename={{file.filename}}&type=plaintext">解密并下载</a>
-                <a href="/file/download?filename={{file.filename}}&type=signature">下载签名文件</a>
-                <a href="/file/share?filename={{file.filename}}">
-                {% if file.shared %}
-                    取消共享
-                {% else %}
-                    进行共享
-                {% endif %}
-                </a>
-                <a href="/file/remove?filename={{file.filename}}">删除</a>
-            </li>
-        {% endfor %}
-        </ui>
-    {% else %}
-        <p>您当前没有上传任何文件</p>
-    {% endif %}
-    <a href="/file/upload">上传</a>
-    <a href="/share_file">共享文件</a>
-    <a href="/logout">退出</a>
+	<!----start-header----->
+	<div class="wrap">
+		<div class="header">
+			<div class="header_top">
+				<div class="logo">
+					<a href="flie.html"><img src="/static/images/logo.png" alt=""></a>
+				</div>
+				<div class="menu">
+					<nav class="clearfix">
+						<ul class="clearfix">
+							<li class="active"><a href="../file/">文件</a></li>
+							<li><a href="../register/">注册</a></li>
+							<li><a href="../file_upload/">文件下载</a></li>
+							<li><a href="../share_file/">文件共享</a></li>
+						</ul>
+						<a href="#" id="pull">Menu</a>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!----End-header----->
+	<!------ Slider ------------>
+	<div class="slider">
+		<div class="slider-wrapper theme-default">
+			<div id="slider" class="nivoSlider">
+				<img src="/static/images/slider-2.jpg" data-thumb="/static/images/slider-2.jpg" alt="" />
+				<img src="/static/images/slider-3.jpg" data-thumb="/static/images/slider-3.jpg" alt="" />
+				<img src="/static/images/slider-4.jpg" data-thumb="/static/images/slider-4.jpg" alt="" />
+				<img src="/static/images/slider-1.jpg" data-thumb="/static/images/slider-1.jpg" alt="" />
+			</div>
+		</div>
+	</div>
+
+	<div class="wrap">
+		<div class="content">
+			<div class="welcome_desc">
+				<div class="section group">
+					<div class="col_1_of_2 span_1_of_2">
+						<h3>Welcome to Your<br> <span>File Catalog</span></h3>
+						{% with messages = get_flashed_messages() %}
+						{% for message in messages %}
+						<p>{{message}}</p>
+						{% endfor %}
+						{% endwith %}
+						<p>{{username}}，您好！</p>
+						{% if files %}
+						<p>您当前上传了以下文件</p>
+						<ui>
+							{% for file in files %}
+							<li>
+								{{file.filename}}(已加密)
+								{% if file.shared %}
+								(已共享)
+								{% else %}
+								(未共享)
+								{% endif %}
+								<br />
+								<a href="/file/download?filename={{file.filename}}&type=encrypted">下载</a>
+								<a href="/file/download?filename={{file.filename}}&type=hashvalue">下载哈希值</a>
+								<a href="/file/download?filename={{file.filename}}&type=plaintext">解密并下载</a>
+								<a href="/file/download?filename={{file.filename}}&type=signature">下载签名文件</a><br />
+								<a href="/file/share?filename={{file.filename}}">
+									{% if file.shared %}
+									取消共享
+									{% else %}
+									进行共享
+									{% endif %}
+								</a>
+								<a href="/file/remove?filename={{file.filename}}">删除</a>
+							</li>
+							{% endfor %}
+						</ui>
+						{% else %}
+						<p>您当前没有上传任何文件</p>
+						{% endif %}
+						<a href="/file/upload">上传</a>
+						<a href="/shared_file">共享文件</a><br />
+						<a href="/logout">退出</a>
+					</div>
+					<div class="col_1_of_2 span_1_of_2">
+						<div class="grid_img">
+							<img src="/static/images/slider-1.jpg" alt="" />
+						</div>
+						<div class="price_desc">
+							<a href="#">
+								<div class="price">♧</div>
+								<div class="price_text">
+									<h4><span>今日图片推送</span>祝您心情愉快</h4>
+								</div>
+								<div class="clear"></div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="border-stip"> </div>
+
+
+
+		</div>
+	</div>
+
+
+
+	<div style="display:none">
+		<script src='http//v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript'
+			charset='gb2312'></script>
+	</div>
 </body>
+
 </html>

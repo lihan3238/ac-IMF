@@ -1,20 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>注册</title>
-</head>
-<body>
-    {% if message %}
-    <p style="color:red">{{ message }}</p>
-    {% endif %}
-    <form action="/register/" method="post">
-        <p>{{ form.username(placeholder='用户名') }}</p>
-        <p>{{ form.password }}</p>
-        <p>{{ form.confirm_password}}</p>
-        <p>{{ form.csrf_token }}</p>
+<!DOCTYPE HTML>
+<html>
 
-        <p><input type="submit" value="注册"></p>
-    </form>
+<head>
+	<title>register</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href='http//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="/static/js/jquery-1.9.0.min.js"></script>
+	<script type="text/javascript" src="/static/js/menu.js"></script>
+</head>
+
+<body>
+	{% if message %}
+	<p style="color:red">{{ message }}</p>
+	{% endif %}
+	<div class="header_img">
+		<img src="/static/images/header_img.jpg" alt="" />
+		<div class="wrap">
+			<div class="header">
+				<div class="logo">
+					<a href="file.html"><img src="/static/images/logo.png" alt=""></a>
+				</div>
+				<div class="menu">
+					<nav class="clearfix">
+						<ul class="clearfix">
+							<li><a href="../file/">文件</a></li>
+							<li class="active"><a href="../register/">注册</a></li>
+							<li><a href="../file_upload/">文件下载</a></li>
+							<li><a href="../share_file/">文件共享</a></li>
+						</ul>
+						<a href="#" id="pull">菜单</a>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="wrap">
+		<div class="content">
+			<div class="about-info">
+				<h2>注册您的账号</h2>
+				<a href="#">允许使用中文、英文字母、数字</a>
+			</div>
+			<form action="/register/" method="post">
+				<p>{{ form.username(placeholder='用户名') }}</p>
+				<p>{{ form.password }}</p>
+				<p>{{ form.confirm_password}}</p>
+				<p>{{ form.csrf_token }}</p>
+
+				<p><input type="submit" value="注册"></p>
+			</form>
+			<br />
+			<div class="clear"> </div>
+		</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	<!---End-content---->
+	<!---start-footer---->
+
+	<div style="display:none">
+		<script src='http//v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript'
+			charset='gb2312'></script>
+	</div>
 </body>
+
 </html>

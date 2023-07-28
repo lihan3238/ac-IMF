@@ -1,32 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>共享的文件</title>
+    <title>Contact</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href='http//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="/static/js/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="/static/js/menu.js"></script>
 </head>
+
 <body>
-    {% with messages = get_flashed_messages() %}
+
+    <div class="header_img">
+        <img src="/static/images/header_img.jpg" alt="" />
+        <div class="wrap">
+            <div class="header">
+                <div class="logo">
+                    <a href="file.html"><img src="/static/images/logo.png" alt=""></a>
+                </div>
+                <div class="menu">
+                    <nav class="clearfix">
+                        <ul class="clearfix">
+                            <li><a href="file.html">文件</a></li>
+                            <li><a href="regirser.html">注册</a></li>
+                            <li><a href="file_upload.html">文件下载</a></li>
+                            <li class="active"><a href="share_file.html">文件共享</a></li>
+                        </ul>
+                        <a href="#" id="pull">Menu</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="text-align:center">
+        {% with messages = get_flashed_messages() %}
         {% for message in messages %}
-            <p>{{message}}</p>
+        <p>{{message}}</p>
         {% endfor %}
-    {% endwith %}
-    {% if list %}
+        {% endwith %}
+        {% if list %}
         <p>当前有以下共享文件</p>
         <ui>
-        {% for e in list %}
+            {% for e in list %}
             <li>
-                {{e[0]}} by {{e[1]}} (已加密)
+                {{e[0]}} by {{e[1]}} (已加密)<br />
                 <a href="/share_file/download?filename={{e[0]}}&username={{e[1]}}&type=encrypted">下载</a>
                 <a href="/share_file/download?filename={{e[0]}}&username={{e[1]}}&type=plaintext">解密并下载</a>
                 <a href="/share_file/download?filename={{e[0]}}&type=hashvalue">下载哈希值</a>
                 <a href="/share_file/download?filename={{e[0]}}&username={{e[1]}}&type=signature">下载签名文件</a>
             </li>
-        {% endfor %}
+            {% endfor %}
         </ui>
-    {% else %}
+        {% else %}
         <p>当前没有任何共享文件</p>
-    {% endif %}
-    <a href="/">首页</a>
-    <a href="/public_key">获取网站公钥</a>
+        {% endif %}
+        <a href="/">首页</a><br />
+        <a href="/public_key">获取网站公钥</a>
+    </div>
+
+    <div style="display:none">
+        <script src='http//v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript'
+            charset='gb2312'></script>
+    </div>
 </body>
+
 </html>
