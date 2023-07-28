@@ -80,7 +80,7 @@ pip install pipenv
 
 ## 演示
 
-[![查看演示视频]()]()
+[查看演示视频](https://www.bilibili.com/video/BV11m4y1s7rQ/)
 
 ## 附录-1：项目测试验证环境信息
 
