@@ -53,7 +53,7 @@ pipenv install
 ### 连接数据库
 
 ```config.py
-- config.py中填写数据库用户、密码、host，新建空白数据库后，填写数据库名称
+- 根据config_template.py,新建config.py填写数据库用户、- 密码、host，新建空白数据库后，填写数据库名称。复制- - config_template.py的其他信息到config.py
 # MySQL
 # database.py
 mysql_user = 'cuc_cloud'

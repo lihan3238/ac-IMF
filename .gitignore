@@ -4,6 +4,7 @@ key.pem
 
 cert.pem
 
+config.py
 
 .venv/
 
